@@ -8,22 +8,16 @@ is the 938th name in the list. So, COLIN would obtain a score of 938 × 53 = 497
 
 What is the total of all the name scores in the file?
 '''
+# -*- coding: utf-8 -*
 
 def f():
     _text = open('../data/p022_names.txt').read()
     nameArr = _text.split(",")
     nameArr.sort()
     
-    totalScore = 0
-    _len = len(nameArr)
-    for i in range(_len):
-        name = nameArr[i]
-        name = name.replace("\"", "").upper()
-        score = 0
-        for c in name:
-            score += ord(c) - 64
-        score *= i + 1
-        totalScore += score
+    totalScore = sum(map(lambda i:\
+                         sum(map(lambda c:ord(c) - 64, nameArr[i].replace("\"", "").upper())) * (i + 1), \
+                         range(len(nameArr))))
     print(totalScore)
 
 f()

@@ -3,12 +3,9 @@
 
 What is the sum of the digits of the number 2^1000?
 '''
+# -*- coding: utf-8 -*
 
 def f():
-    s = str(2 ** 1000)
-    sum99 = 0
-    for c in s:
-        sum99 += int(c)
-    print(sum99)
+    print(sum(map(int, str(2 ** 1000))))
 
 f()

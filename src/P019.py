@@ -12,10 +12,11 @@ You are given the following information, but you may prefer to do some research 
 
 How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 '''
+# -*- coding: utf-8 -*
 
 def f():
     daysOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    #dayOfWeek = [0, 1, 2, 3, 4, 5, 6]  # 星期几，0代表周日
+    # dayOfWeek = [0, 1, 2, 3, 4, 5, 6]  # 星期几，0代表周日
     r = [-1] * (100 * 12 + 1)  # 存放100年间每个月的第一天星期几
     d1900_01 = 1
     r[0] = (365 + d1900_01) % 7  # 1901年1月1日星期几
@@ -27,11 +28,7 @@ def f():
                 daysOfThisMonth += 1
             r[index] = (r[index - 1] + daysOfThisMonth) % 7
     
-    _count = 0
-    for i in range(1200):
-        if r[i] == 0:
-            _count += 1
-    print(_count)
+    print(sum(map(lambda i:1 if r[i] == 0 else 0, range(1200))))
 
 def isLeapYear(year):
     return year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)

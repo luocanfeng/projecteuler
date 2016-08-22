@@ -102,6 +102,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
 '''
+# -*- coding: utf-8 -*
 
 def f():
     string = "37107287533902102798797998220837590246510135740250\n\
@@ -204,18 +205,6 @@ def f():
 72107838435069186155435662884062257473692284509516\n\
 20849603980134001723930671666823555245252804609722\n\
 53503534226472524250874054075591789781264330331690"
-    lineArr = string.split("\n")
-    extra = 0
-    discards = []
-    for i in range(50)[::-1]:
-        for line in lineArr:
-            extra += int(line[i])
-        discards.append(str(extra % 10))
-        extra = int(extra / 10)
-    while extra > 0:
-        discards.append(str(extra % 10))
-        extra = int(extra / 10)
-    discards.reverse()
-    print(''.join(discards))
+    print(sum(map(int, string.split("\n"))))
 
 f()

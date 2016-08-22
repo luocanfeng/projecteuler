@@ -15,6 +15,7 @@ the greatest number that cannot be expressed as the sum of two abundant numbers 
 
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 '''
+# -*- coding: utf-8 -*
 
 def f(n):
     divisorsSumDict = {}
@@ -29,7 +30,6 @@ def f(n):
     for i in range(2, n + 1):
         if divisorsSumDict[i] > i:
             abundantNumbers.append(i)
-    print(len(abundantNumbers))
 
     _len = len(abundantNumbers)
     isSumOfTwoAbundantNumbers = [False] * n
@@ -41,10 +41,6 @@ def f(n):
             else:
                 break
     
-    _sum = 0
-    for i in range(n):
-        if not isSumOfTwoAbundantNumbers[i]:
-            _sum += i + 1
-    print(_sum)
+    print(sum(map(lambda i:0 if isSumOfTwoAbundantNumbers[i] else i + 1, range(n))))
 
 f(28123)

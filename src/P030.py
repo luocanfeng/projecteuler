@@ -11,10 +11,9 @@ The sum of these numbers is 1634 + 8208 + 9474 = 19316.
 
 Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
 '''
+# -*- coding: utf-8 -*
 
 def f():
-    _sum = 0
-    
     digits = 1
     while True:
         if (9 ** 5) * digits < 10 ** (digits - 1)  :
@@ -25,6 +24,7 @@ def f():
     print(digits)
     
     stop = 10 ** digits
+    _sum = 0
     for n in range(2, stop):
         if n == sum(map(lambda x:int(x) ** 5, str(n))):
             _sum += n

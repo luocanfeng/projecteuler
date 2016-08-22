@@ -27,6 +27,7 @@ The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
 What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) 
 in the 20×20 grid?
 '''
+# -*- coding: utf-8 -*
 
 def f():
     string = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\n\
@@ -49,40 +50,21 @@ def f():
 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16\n\
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54\n\
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
-    strArr = []
-    lineArr = string.split('\n')
-    for s in lineArr:
-        strArr.append(s.split(' '))
-    # print(strArr)
-    
-    intArr = []
-    for i in range(20):
-        tmpArr = []
-        for j in range(20):
-            tmpArr.append(int(strArr[i][j]))
-        intArr.append(tmpArr)
-    print(intArr)
+    arr = list(map(lambda line:list(map(int, line.split(' '))), string.split('\n')))
+    # print(arr)
     
     maxProduct = 0
     
     for i in range(20):
         for j in range(20):
             if i <= 16:
-                product = intArr[i][j] * intArr[i + 1][j] * intArr[i + 2][j] * intArr[i + 3][j]
-                if product > maxProduct:
-                    maxProduct = product
+                maxProduct = max(maxProduct, arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j])
                 if j <= 16:
-                    product = intArr[i][j] * intArr[i + 1][j + 1] * intArr[i + 2][j + 2] * intArr[i + 3][j + 3]
-                    if product > maxProduct:
-                        maxProduct = product
+                    maxProduct = max(maxProduct, arr[i][j] * arr[i + 1][j + 1] * arr[i + 2][j + 2] * arr[i + 3][j + 3])
                 if j >= 3:
-                    product = intArr[i][j] * intArr[i + 1][j - 1] * intArr[i + 2][j - 2] * intArr[i + 3][j - 3]
-                    if product > maxProduct:
-                        maxProduct = product
+                    maxProduct = max(maxProduct, arr[i][j] * arr[i + 1][j - 1] * arr[i + 2][j - 2] * arr[i + 3][j - 3])
             if j <= 16:
-                product = intArr[i][j] * intArr[i][j + 1] * intArr[i][j + 2] * intArr[i][j + 3]
-                if product > maxProduct:
-                    maxProduct = product
+                maxProduct = max(maxProduct, arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3])
     print(maxProduct)
 
 f()

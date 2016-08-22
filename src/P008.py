@@ -25,6 +25,8 @@ The four adjacent digits in the 1000-digit number that have the greatest product
 Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. 
 What is the value of this product?
 '''
+# -*- coding: utf-8 -*
+from functools import reduce
 
 def f():
     string = "73167176531330624919225119674426574742355349194934\
@@ -48,19 +50,9 @@ def f():
 05886116467109405077541002256983155200055935729725\
 71636269561882670428252483600823257530420752963450"
     _len = 13
-    arr = []
-    for i in range(1000 + 1 - _len):
-        substr = string[i:_len + i]
-        if '0' not in substr:
-            arr.append(substr)
-    print(len(arr))
-    product = 0
-    for substr in arr:
-        r = 1
-        for i in range(_len):
-            r *= int(substr[i])
-        if r > product:
-            product = r
-    print(product)
+    substrArr = filter(lambda s:s != '0', \
+                       map(lambda i:'0' if '0' in string[i: i + _len] else string[i: i + _len], range(1000 - _len + 1)))
+    products = map(lambda s: reduce(lambda x, y:x * y, map(lambda c:int(c), s)), substrArr)
+    print(max(products))
 
 f()

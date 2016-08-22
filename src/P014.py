@@ -13,31 +13,26 @@ Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
 '''
+# -*- coding: utf-8 -*
 
 lenOfChainDict = {}
 lenOfChainDict[1] = 1
 lenOfChainDict[2] = 2
 
 def f(n):
-    _len = 0
-    _num = 0
-    fillLenOfChain(n)
-    for k, v in lenOfChainDict.items():
-        if k < n and v > _len:
-            _len = v
-            _num = k
-    print(_num)
-
-def fillLenOfChain(n):
     for i in range(3, n):
         getLenOfChain(i)
+    
+    _len = 0
+    theNumber = 0
+    for i in range(3, n):
+        if lenOfChainDict[i] > _len:
+            _len = lenOfChainDict[i]
+            theNumber = i
+    print(theNumber)
 
 def getLenOfChain(n):
-    _next = 0
-    if n % 2 == 0:
-        _next = int(n / 2)
-    else:
-        _next = n * 3 + 1
+    _next = int(n / 2) if n % 2 == 0 else n * 3 + 1
     if _next in lenOfChainDict.keys():
         lenOfChainDict[n] = lenOfChainDict[_next] + 1
     else:

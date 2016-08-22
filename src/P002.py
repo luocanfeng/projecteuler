@@ -7,18 +7,19 @@ By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed four million, 
 find the sum of the even-valued terms.
 '''
+# -*- coding: utf-8 -*
 
 def f(n):
     x, y, z = 1, 2, 3
-    sum99 = y
+    _sum = y
 
     while z <= n:
         x = y
         y = z
         z = x + y
         if z <= n and z % 2 == 0:
-            sum99 += z
+            _sum += z
 
-    print(sum99)
+    print(_sum)
 
 f(4000000)

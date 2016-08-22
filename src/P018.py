@@ -31,6 +31,7 @@ NOTE: As there are only 16384 routes, it is possible to solve this problem by tr
 However, Problem 67, is the same challenge with a triangle containing one-hundred rows; 
 it cannot be solved by brute force, and requires a clever method! ;o)
 '''
+# -*- coding: utf-8 -*
 
 def f():
     string = "75\n\
@@ -48,24 +49,11 @@ def f():
 91 71 52 38 17 14 91 43 58 50 27 29 48\n\
 63 66 04 68 89 53 67 30 73 16 69 87 40 31\n\
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"
-    lineArr = string.split("\n")
-    intArr = []
-    for line in lineArr:
-        split = line.split(" ")
-        tmpArr = []
-        for s in split:
-            tmpArr.append(int(s))
-        intArr.append(tmpArr)
+    intArr = list(map(lambda line:list(map(int, line.split(' '))), string.split('\n')))
     
-    arrLen = len(intArr)
-    
-    for i in range(arrLen - 1)[::-1]:  # 从倒数第二行开始遍历
+    for i in range(len(intArr) - 1)[::-1]:  # 从倒数第二行开始遍历
         for j in range(i + 1):  # 遍历第i行数据
-            if intArr[i + 1][j] > intArr[i + 1][j + 1]:
-                intArr[i][j] += intArr[i + 1][j]
-            else:
-                intArr[i][j] += intArr[i + 1][j + 1]
-    #print(intArr)
+            intArr[i][j] += max(intArr[i + 1][j] , intArr[i + 1][j + 1])
     print(intArr[0][0])
     
 f()

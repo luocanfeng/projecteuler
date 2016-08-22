@@ -4,12 +4,15 @@ The sum of these multiples is 23.
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 '''
+# -*- coding: utf-8 -*
 
 def f(n):
-    sum99 = 0
-    for i in range(n):
-        if i % 3 == 0 or i % 5 == 0:
-            sum99 += i
-    print(sum99)
+    print(sumOfMultipleOfNBelowM(n, 3) + sumOfMultipleOfNBelowM(n, 5) - sumOfMultipleOfNBelowM(n, 15))
+
+def sumOfMultipleOfNBelowM(m, n):
+    # anotner arithmetic
+    # return sum(range(n, m)[::n])
+    times = int(m / n)
+    return 0 if times == 0 else int(n * (times + 1) * times / 2)
 
 f(1000)

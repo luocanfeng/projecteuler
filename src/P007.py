@@ -3,6 +3,7 @@ By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that 
 
 What is the 10 001st prime number?
 '''
+# -*- coding: utf-8 -*
 import GetPrimes
 
 def f(n):
