@@ -10,9 +10,7 @@ Evaluate the sum of all the amicable numbers under 10000.
 # -*- coding: utf-8 -*
 
 def f(n):
-    divisorsSumDict = {}
-    for i in range(1, n):
-        divisorsSumDict[i] = 1
+    divisorsSumDict = {i: 1 for i in range(1, n)}
     
     for i in range(2, n):
         for j in range(i + i, n)[::i]:

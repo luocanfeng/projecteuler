@@ -18,9 +18,7 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 # -*- coding: utf-8 -*
 
 def f(n):
-    divisorsSumDict = {}
-    for i in range(1, n + 1):
-        divisorsSumDict[i] = 1
+    divisorsSumDict = {i:1 for i in range(1, n + 1)}
     
     for i in range(2, n + 1):
         for j in range(i + i, n + 1)[::i]:
