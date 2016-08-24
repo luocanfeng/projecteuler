@@ -32,7 +32,7 @@ def f(n):
     print(theNumber)
 
 def getLenOfChain(n):
-    _next = int(n / 2) if n % 2 == 0 else n * 3 + 1
+    _next = n // 2 if n % 2 == 0 else n * 3 + 1
     if _next in lenOfChainDict.keys():
         lenOfChainDict[n] = lenOfChainDict[_next] + 1
     else:

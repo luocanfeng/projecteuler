@@ -23,7 +23,7 @@ import GetPrimes
 def f(n):
     primes = GetPrimes.getPrimes(n)
     for i in range(n, 10 * n * n):
-        triangleNumber = int(i * (i + 1) / 2)
+        triangleNumber = i * (i + 1) // 2
         if countDivisors(triangleNumber, primes) >= n:
             print(triangleNumber)
             break
@@ -34,7 +34,7 @@ def countDivisors(n, primes):
         t = 1
         while n % prime == 0:
             t += 1;
-            n = int(n / prime)
+            n = n // prime
         divisorsCount *= t
         if n == 1:
             break

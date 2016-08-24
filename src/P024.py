@@ -12,15 +12,15 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 
 def f(n):
     digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    factorial = [1]
-    for i in range(1, 10):
-        factorial.append(factorial[i - 1] * (i + 1))
+    factorials = [1]
+    for i in range(1, 9):
+        factorials.append(factorials[i - 1] * (i + 1))
     
     result = []
     r = n - 1
     for i in range(10):
-        f = factorial[10 - i - 2]
-        c = int(r / f)
+        f = factorials[10 - i - 2]
+        c = r // f
         result.append(digits[c])
         digits.remove(digits[c])
         r %= f

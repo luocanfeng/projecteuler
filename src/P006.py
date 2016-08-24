@@ -14,7 +14,7 @@ and the square of the sum.
 # -*- coding: utf-8 -*
 
 def f(n):
-    squareOfTheSum = _sum = int(n * (n + 1) / 2) ** 2
+    squareOfTheSum = _sum = (n * (n + 1) // 2) ** 2
     sumOfTheSquares = sum(map(lambda x:x * x, range(1, n + 1)))
 
     print(squareOfTheSum - sumOfTheSquares)

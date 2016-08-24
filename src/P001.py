@@ -12,7 +12,7 @@ def f(n):
 def sumOfMultipleOfNBelowM(m, n):
     # anotner arithmetic
     # return sum(range(n, m)[::n])
-    times = int(m / n)
-    return 0 if times == 0 else int(n * (times + 1) * times / 2)
+    times = m // n
+    return 0 if times == 0 else n * (times + 1) * times // 2
 
 f(1000)
