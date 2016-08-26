@@ -12,12 +12,9 @@ What is the total of all the name scores in the file?
 
 def f():
     _text = open('../data/p022_names.txt').read()
-    nameArr = _text.split(",")
+    nameArr = list(map(lambda s:s.replace("\"", "").upper(), _text.split(",")))
     nameArr.sort()
     
-    totalScore = sum(map(lambda i:\
-                         sum(map(lambda c:ord(c) - 64, nameArr[i].replace("\"", "").upper())) * (i + 1), \
-                         range(len(nameArr))))
-    print(totalScore)
+    print(sum(map(lambda i:sum(map(lambda c:ord(c) - 64, nameArr[i])) * (i + 1), range(len(nameArr)))))
 
 f()

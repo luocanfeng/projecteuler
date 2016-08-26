@@ -8,7 +8,7 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 # -*- coding: utf-8 -*
 
 def f():
-    factorials = [1, 1]  # It's very import that the factorial of 0 is 1
+    factorials = [1, 1]  # It's very important that the factorial of 0 is 1
     for i in range(2, 10):
         factorials.append(factorials[i - 1] * i)
     print(factorials)
