@@ -9,6 +9,7 @@ Find the pair of pentagonal numbers, Pj and Pk, for which their sum and differen
 and D = |Pk − Pj| is minimised; what is the value of D?
 '''
 # -*- coding: utf-8 -*
+import math
 
 def f():
     '''
@@ -23,27 +24,49 @@ def f():
     
     '''
         ∵ P(n+i) + P(n) = P(a), P(n+i) - P(n) = P(b)
-        ∴ 2P(n+i) = P(a) + P(b), 2P(n)= P(a) - P(b)
+        ∴ 2P(n+i) = P(a) + P(b), 2P(n) = P(a) - P(b)
         Which we shall find is the minimised P(b)
     '''
-    pn = [n * (3 * n - 1) // 2 for n in range(1, 100000)]
-    print(pn)
-    pnset = set(pn)
-    dpnset = list(filter(lambda n:n % 2 == 0 and n // 2 in pnset, pn))
-    print(dpnset)
     
-    mind = 10 ** 10
-    for n in range(1, 10000):
-        for i in range(1, 10000):
-            d = pn[n + i] - pn[n]
-            if d > mind:
-                print(mind)
-                return
-            s = pn[n + i] + pn[n]
-            if s in pnset and d in pnset:
-                print("P%d + P%d = %d" % (n + i, n, s))
-                print("P%d - P%d = %d" % (n + i, n, d))
-                mind = d
-    print(mind)
+    pn = [0, 1]
+    n = 2
+    while True:
+        pn.append(n * (3 * n - 1) // 2)
+        for m in range(1, n):
+            s = pn[n] + pn[m]
+            d = pn[n] - pn[m]
+            if isPentagonal(s) and isPentagonal(d):
+                print(d)
+                return d
+        n += 1
+    
+#     pn = [n * (3 * n - 1) // 2 for n in range(1, 100000)]
+#     print(pn)
+#     pnset = set(pn)
+#     dpnset = list(filter(lambda n:n % 2 == 0 and n // 2 in pnset, pn))
+#     print(dpnset)
+#     
+#     mind = 10 ** 10
+#     for n in range(1, 10000):
+#         for i in range(1, 10000):
+#             d = pn[n + i] - pn[n]
+#             if d > mind:
+#                 print(mind)
+#                 return
+#             s = pn[n + i] + pn[n]
+#             if s in pnset and d in pnset:
+#                 print("P%d + P%d = %d" % (n + i, n, s))
+#                 print("P%d - P%d = %d" % (n + i, n, d))
+#                 mind = d
+#     print(mind)
+
+'''
+    ∵ Pn = n(3n-1)/2
+    ∴ 24Pn+1 = 36n^2-12n+1 = (6n-1)^2
+        n = (sqrt(24Pn+1)+1)/6
+'''
+def isPentagonal(pn):
+    t = (1 + math.sqrt(1 + 24 * pn)) / 6
+    return math.floor(t) == t
 
 f()
