@@ -4,12 +4,12 @@
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 '''
 # -*- coding: utf-8 -*
-import GetPrimes
+import Primes
 
 # print(16 * 9 * 5 * 7 * 11 * 13 * 17 * 19)
 
 def f(n):
-    primes = GetPrimes.getPrimes(n)
+    primes = Primes.getPrimes(n)
     result = 1
     for p in primes:
         m = 2

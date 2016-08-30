@@ -18,10 +18,10 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred divisors?
 '''
 # -*- coding: utf-8 -*
-import GetPrimes
+import Primes
 
 def f(n):
-    primes = GetPrimes.getPrimes(n)
+    primes = Primes.getPrimes(n)
     for i in range(n, 10 * n * n):
         triangleNumber = i * (i + 1) // 2
         if countDivisors(triangleNumber, primes) >= n:

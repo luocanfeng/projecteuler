@@ -7,10 +7,10 @@ There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73
 How many circular primes are there below one million?
 '''
 # -*- coding: utf-8 -*
-import GetPrimes
+import Primes
 
 def f(n):
-    primes = GetPrimes.getPrimes(n)
+    primes = Primes.getPrimes(n)
     primesSet = set(primes)
     count = 2  # 2 and 5
     for p in primes:

@@ -11,10 +11,10 @@ and is equal to 953.
 Which prime, below one-million, can be written as the sum of the most consecutive primes?
 '''
 # -*- coding: utf-8 -*
-import GetPrimes
+import Primes
 
 def f(n):
-    primes = GetPrimes.getPrimes(n)
+    primes = Primes.getPrimes(n)
     primesSet = set(primes)
     
     # maxLen=546, sum(primes[:546])=997661, sum(primes[:547])=1001604

@@ -5,11 +5,11 @@ What is the largest prime factor of the number 600851475143 ?
 '''
 # -*- coding: utf-8 -*
 import math
-import GetPrimes
+import Primes
 
 def f(n):
     sqrt = int(math.sqrt(n))
-    primes = GetPrimes.getPrimes(sqrt)
+    primes = Primes.getPrimes(sqrt)
     # print(primes)
 
     for prime in primes[::-1]:

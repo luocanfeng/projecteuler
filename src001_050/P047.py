@@ -13,10 +13,10 @@ The first three consecutive numbers to have three distinct prime factors are:
 Find the first four consecutive integers to have four distinct prime factors. What is the first of these numbers?
 '''
 # -*- coding: utf-8 -*
-import GetPrimes
+import Primes
 
 def f():
-    primes = GetPrimes.getPrimes(1000000)
+    primes = Primes.getPrimes(1000000)
     n = 2 * 3 * 5 * 7
     _count = 0
     while True:

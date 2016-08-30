@@ -8,10 +8,10 @@ Find the sum of the only eleven primes that are both truncatable from left to ri
 NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 '''
 # -*- coding: utf-8 -*
-import GetPrimes
+import Primes
 
 def f():
-    primes = set(GetPrimes.getPrimes(1000000))
+    primes = set(Primes.getPrimes(1000000))
     
     # a truncatable prime must not contains 0, and have to be end by 3 or 7
     subPrimes = set(filter(lambda p:(p % 10 == 3 or p % 10 == 7) and '0' not in str(p), primes)) - set([3, 7])

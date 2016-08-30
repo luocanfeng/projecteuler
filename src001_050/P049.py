@@ -9,11 +9,11 @@ but there is one other 4-digit increasing sequence.
 What 12-digit number do you form by concatenating the three terms in this sequence?
 '''
 # -*- coding: utf-8 -*
-import GetPrimes
+import Primes
 import itertools
 
 def f():
-    primes = list(filter(lambda p:p > 1000, GetPrimes.getPrimes(9999)))
+    primes = list(filter(lambda p:p > 1000, Primes.getPrimes(9999)))
     for p in primes:
         s = set(filter(lambda x:x > 1000 and x in primes, \
                        map(lambda item:int(''.join(item)), itertools.permutations(str(p)))))

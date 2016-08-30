@@ -14,10 +14,10 @@ It turns out that the conjecture was false.
 What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?
 '''
 # -*- coding: utf-8 -*
-import GetPrimes
+import Primes
 
 def f():
-    primes = GetPrimes.getPrimes(1000000)
+    primes = Primes.getPrimes(1000000)
     twiceSquares = set([2 * n * n for n in range(1, 10000)])
     
     o = 9

@@ -5,14 +5,14 @@ For example, 2143 is a 4-digit pandigital and is also prime.
 What is the largest n-digit pandigital prime that exists?
 '''
 # -*- coding: utf-8 -*
-import GetPrimes
+import Primes
 import math
 import itertools
 
 def f():
     # 9-digit number would not be a prime, because it can be divided by 9 with no remainder
     sqrt = math.ceil(math.sqrt(87654321))
-    primes = GetPrimes.getPrimes(sqrt)
+    primes = Primes.getPrimes(sqrt)
     for d in range(1, 9)[::-1]:
         permutations = list(map(lambda item:int(''.join(item)), itertools.permutations(map(str, range(1, d + 1)))))
         permutations.sort()
